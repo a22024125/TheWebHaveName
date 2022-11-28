@@ -12,6 +12,8 @@
                 main_iframe = document.getElementById("main_iframe");
                 myPage = document.getElementById("MyPage");
                 myPage.addEventListener("click", function (){ main_iframe.src = "myPage.html";}, false);
+                WhoIsMe = document.getElementById("WhoIsMe");
+                WhoIsMe.addEventListener("click", function (){ main_iframe.src = "WIM.html";}, false);
                 Album = document.getElementById("Album");
                 Album.addEventListener("click", function (){ main_iframe.src = "album.html" ;}, false);
                 Calander = document.getElementById("Calander");
