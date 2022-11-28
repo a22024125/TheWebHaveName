@@ -1,0 +1,51 @@
+body            {
+    background-color: rgb(228, 208, 180);
+    height: 100%;
+}
+.add_post_btn   {
+    margin-left: 20px;
+}
+.edit_post_btn  {
+    position: relative;
+    margin-left: 20px;
+    bottom: 6px;
+}
+.post           {
+    background-color:rgb(228, 191, 178);
+    margin: 20px;
+}
+.edit_img       {
+    position: relative;
+    right: -10px;
+}
+.del_img        {
+    position: relative;
+    right: -20px;
+    top: 2px;
+}
+.post_content   {
+    margin-top: 10px;
+    margin-left: 20px;
+    padding-bottom: 5px;
+    font-size: 13pt;
+}
+.div_textarea   {
+    margin-left: 20px;
+    width: auto;
+}
+.post_text      {
+    border:0;
+    background-color: rgb(228, 191, 178);
+    font-size: 12pt;
+    color: black;
+    font-weight: lighter;
+    width: 98%;
+
+}
+/*RWD*/
+@media only screen and (max-width: 600px){
+    div         {
+        width: 100;
+    }
+    
+}

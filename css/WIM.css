@@ -1,0 +1,33 @@
+@import url(https://fonts.googleapis.com/earlyaccess/notosanstc.css);
+
+*{
+    color:rgb(151, 117, 67);
+    font-family: 'Helvetica','Noto Sans TC',sans-serif;
+    margin-top: 8px;
+}
+
+body{
+    width: 100%;
+    height: 100%;
+    background-color: rgb(255, 231, 199);
+}
+
+form{
+    width: 100%;
+    height: 100%;
+    padding-left: 40%;
+}
+
+
+.name{
+    width: 100px;
+}
+
+.selfIntroduce{
+    width: 400px;
+    height: 250px;
+    vertical-align:0%;
+    text-align: left;
+
+}
+

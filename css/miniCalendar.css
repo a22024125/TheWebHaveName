@@ -1,0 +1,38 @@
+@import url(https://fonts.googleapis.com/earlyaccess/notosanstc.css);
+
+*{
+    color:rgb(151, 117, 67);
+    font-family: 'Helvetica','Noto Sans TC',sans-serif;
+    text-align:center;
+
+}
+
+body{
+    width: 100%;
+    height: 100%;
+    background-color: rgb(255, 231, 199);
+}
+.month{
+    font-size:30px;
+    font-weight: bold;
+    width: 400;
+    color:rgb(189, 147, 109);
+}
+
+.lastMonthBtn{
+    margin-left: 30px;
+    width: 50px;
+    height: 50px;
+    float: left;
+    border: none;
+    background-color: rgb(255, 231, 199);
+}
+
+.nextMonthBtn{
+    margin-right: 35px;
+    width: 50px;
+    height: 50px;
+    float: right;
+    border: none;
+    background-color: rgb(255, 231, 199);
+}
