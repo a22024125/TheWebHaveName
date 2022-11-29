@@ -41,6 +41,8 @@
                 border-style: hidden;
                 border: 1px solid black;
                 box-sizing: border-box;
+                overflow-x: hidden;
+                overflow-y: hidden;
             }
             .embed_div  {
                 text-align: center;

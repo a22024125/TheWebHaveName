@@ -8,10 +8,29 @@
 }
 
 body{
-    width: 100%;
-    height: 100%;
+    width: auto;
     background-color: rgb(255, 231, 199);
 }
+
+.calendar{
+    background-color: rgb(255, 223, 186);
+    table-layout: fixed;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+table tr{
+    height: 35px;
+}
+
+.upCalendar{
+    background-color: rgb(253, 216, 167);
+}
+
+.year{
+    font-weight: bold;
+}
+
 .month{
     font-size:30px;
     font-weight: bold;
@@ -25,14 +44,42 @@ body{
     height: 50px;
     float: left;
     border: none;
-    background-color: rgb(255, 231, 199);
+    background-color: rgb(253, 216, 167);
 }
 
 .nextMonthBtn{
-    margin-right: 35px;
+    margin-right: 37px;
     width: 50px;
     height: 50px;
     float: right;
     border: none;
-    background-color: rgb(255, 231, 199);
+    background-color: rgb(253, 216, 167);
+}
+
+#targetDay{
+    background-color: #ffd1f77e;
+    border-radius: 999em;
+    width: 5px;
+    height: 30px;
+    border: 2px solid #ffe0fa;
+    table-layout: fixed;
+}
+
+table{
+    text-align: center;
+}
+
+form{
+    margin-top: 10px;
+}
+
+button{
+    border-color:rgb(255, 214, 227);
+    color: rgb(124, 124, 124);
+    background-color: rgb(250, 240, 243);
+}
+
+input{
+    background-color: rgb(248, 226, 227);
+    border-color: rgb(255, 200, 200);
 }
