@@ -7,6 +7,7 @@
             var log_out;
             var name;
             var birthday_song;
+            var birthday_hat;
 
             function start(){
                 //點擊a後設定iframe網頁
@@ -24,12 +25,26 @@
                 log_out = document.getElementById("log_out");
                 log_out.addEventListener("click", logOut, false);
                 birthday_song = document.getElementById("birthday_song");
+                birthday_hat = document.getElementById("birthday_hat");
 
-                //判斷有無輸入姓名
+                //判斷有無輸入姓名 
                 if(!localStorage.getItem("name"))
                     localStorage.setItem("name", "我是大美女");
                 document.getElementById("name").innerHTML = localStorage.getItem("name");
             
+                //設定生日帽
+                if(localStorage.getItem("birthday")){
+                    let birth = localStorage.getItem("birthday");
+                    let now = new Date();
+                    birth = birth.split("-");
+                    if((now.getMonth()+1) == birth[1] && now.getDate() == birth[2]){
+                        $("#birthday_hat").attr("src","img/hat.png");
+                        $("#birthday_hat").attr("class","hat");
+                    }else{
+                        $("#birthday_hat").attr("src","img/background_color.PNG");
+                        //$("#birthday_hat").attr("class","no_hat");
+                    }
+                }
                 //check_birthday();
             }
 
