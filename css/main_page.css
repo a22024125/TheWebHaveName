@@ -90,10 +90,10 @@
                 bottom: -4px;
             }
             #small_calander {
-                width: 562px;
-                height:480px; 
+                width: 570px;
+                height:450px; 
                 transform-origin:left top; 
-                transform: scale(0.4, 0.4);
+                transform: scale(0.3, 0.3);
             }
             p           {
                 margin: 11px;
