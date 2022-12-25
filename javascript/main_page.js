@@ -45,6 +45,8 @@
                         $("#birthday_hat").hide();
                         //$("#birthday_hat").attr("class","no_hat");
                     }
+                }else{
+                    $("#birthday_hat").hide();
                 }
                 //check_birthday();
             }
