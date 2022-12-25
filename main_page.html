@@ -9,7 +9,7 @@
         <script type = "text/javascript" src = "javascript/main_page.js"></script>
     </head>
     <body>
-        <audio id = "birthday_song">
+        <audio id = "birthday_song" preload="auto">
             <source src = "song/birthday_song.mp3" type = "audio/mp3">
         </audio>
         <div class = "floated side">
@@ -27,7 +27,7 @@
             <p><a id = "Video" href = "#">Video</a></p>
             <p><a id = "Calander" href = "#">Calander</a></p>
             <hr>
-            <iframe id = "small_calander" src = "miniCalendar.html" scrolling="no" style="width:562px; height:480px; transform-origin:left top; transform: scale(0.5, 0.5)"></iframe>
+            <p><iframe id = "small_calander" src = "miniCalendar.html" scrolling="no"></iframe></p>
 
         </div>      
         
@@ -37,7 +37,7 @@
             </div>
             <div>
                 <!--sandbox="allow-scripts allow-same-origin allow-top-navigation allow-forms"-->
-                <iframe id = "main_iframe" src = "background.html" scrolling="no"></iframe>
+                <iframe id = "main_iframe" src = "background.html"></iframe>
             </div>
         </div>
     </body>

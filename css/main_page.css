@@ -61,6 +61,7 @@
             #main_iframe    {
                 width: 96%;
                 height: 90vh;
+                overflow-x: scroll;
                 overflow-y: scroll;
                 border-style: hidden;
             }
@@ -87,6 +88,12 @@
                 z-index: 1;
                 left: 50px;
                 bottom: -4px;
+            }
+            #small_calander {
+                width: 562px;
+                height:480px; 
+                transform-origin:left top; 
+                transform: scale(0.4, 0.4);
             }
             p           {
                 margin: 11px;
@@ -120,7 +127,7 @@
                 }
                 #user_picture    {
                     position: relative;
-                    right: 30px;
+                    right: 5px;
                 }
                 .hat        {
                     position: relative;
@@ -131,5 +138,12 @@
                     position: relative;
                     top: -145px;
                     left: 190px;
+                }
+                #small_calander     {
+                    position: relative;
+                    left: 25%;
+                    width: 580px;
+                    height: 500px;
+                    transform: scale(0.4, 0.4);
                 }
             }

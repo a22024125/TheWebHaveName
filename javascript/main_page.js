@@ -26,7 +26,7 @@
                 log_out.addEventListener("click", logOut, false);
                 birthday_song = document.getElementById("birthday_song");
                 birthday_hat = document.getElementById("birthday_hat");
-
+                
                 //判斷有無輸入姓名 
                 if(!localStorage.getItem("name"))
                     localStorage.setItem("name", "我是大美女");
@@ -42,6 +42,7 @@
                         $("#birthday_hat").attr("class","hat");
                     }else{
                         $("#birthday_hat").attr("src","img/background_color.PNG");
+                        $("#birthday_hat").hide();
                         //$("#birthday_hat").attr("class","no_hat");
                     }
                 }
