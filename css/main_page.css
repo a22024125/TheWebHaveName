@@ -91,12 +91,18 @@
             }
             #small_calander {
                 width: 570px;
-                height:450px; 
+                height:480px; 
                 transform-origin:left top; 
                 transform: scale(0.3, 0.3);
             }
+            .iNeedThatP{
+                height: 170px;
+            }
             p           {
                 margin: 11px;
+            }
+            .calDiv{
+                height: 500px;
             }
             a           {
                 text-align: center;
@@ -108,6 +114,12 @@
             a:hover     {
                 background-color: indianred;
                 color:  white;
+            }
+            .todo{
+                text-align: center;
+                display: flex;
+                float: left;
+                color: rgb(255, 128, 111);
             }
             /*RWD*/
             @media only screen and (max-width: 800px){
@@ -139,11 +151,18 @@
                     top: -145px;
                     left: 190px;
                 }
-                #small_calander     {
+                #small_calander{
                     position: relative;
                     left: 25%;
                     width: 580px;
-                    height: 500px;
+                    height: 480px;
                     transform: scale(0.4, 0.4);
+                }
+                .todo{
+                    text-align: center;
+                    position: relative;
+                    margin-left: 30%;
+                    /* left: 25%; */
+                    color: rgb(255, 128, 111);
                 }
             }

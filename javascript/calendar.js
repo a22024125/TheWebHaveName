@@ -4,7 +4,10 @@ let calendarTable=document.querySelector(".calendar");
 let count=1;
 let lastMonthBtn=document.querySelector(".lastMonthBtn");
 let nextMonthBtn=document.querySelector(".nextMonthBtn");
-
+let target;
+let toDoList=document.querySelector(".toDoList");
+let add=document.querySelector(".add");
+let allToDoList=[];
 
 //日期來源
 let date=new Date();
@@ -53,7 +56,7 @@ nextMonthBtn.addEventListener("click",e=>{
 })
 
 let dayTd=document.querySelectorAll(".dayTd");
-console.log(dayTd);
+// console.log(dayTd);
 
 
 
@@ -90,6 +93,7 @@ function setCalender(){
             let oldtarget=document.querySelector("#targetDay");
             allTd[i].setAttribute("id","targetDay");
             oldtarget.removeAttribute("id");
+            target=allTd[i];
         })
     }
     
@@ -107,6 +111,139 @@ function ifLeapYear(){
 //設置標記日期
 function lableDay(targetDay){
     targetDay.setAttribute("id","targetDay");
+    target=targetDay;
 }
 
+// localStorage.clear();
+load();
+//Todo List功能
+add.addEventListener("click",e=>{
 
+    //讓按鈕不跳轉
+    e.preventDefault();
+
+    //新增代辦事項
+    //取得輸入值
+    let form=e.target.parentElement;
+    let todoText = form.children[0].children[0].value;
+
+    //取得指定日期
+    // console.log(target.innerHTML);
+    let today=year + " " + todayMonth + " " + target.innerHTML;
+    // console.log(today);
+
+    let todo = document.createElement("div");
+    todo.classList.add("todo");
+    let p=document.createElement('p');
+    p.setAttribute('class','list');
+    let p2=document.createElement('p');
+    p2.setAttribute('class','time')
+    p.innerHTML=todoText;
+    p2.innerHTML=today;
+
+    let myToDo={
+        text:todoText,
+        day:today
+    }
+    
+    allToDoList.push(myToDo);
+    // console.log(allToDoList);
+
+    //刪除代辦事項按鈕
+    let deleteBtn=document.createElement('button');
+    deleteBtn.setAttribute('class','deleteBtn');
+    deleteBtn.addEventListener("click",e=>{
+        let deleteTarget=e.target.parentElement.children[1];
+        console.log(deleteTarget);
+
+        let todoItem = e.target.parentElement;
+        // remove from local storage
+        let text = todoItem.children[0].innerText;
+        console.log("This todoItem.children[1].innerText:"+text);
+        let myListArray = JSON.parse(localStorage.getItem("list"));
+        console.log("myListArray:"+localStorage.getItem("list"));
+        myListArray.forEach((item, index) => {
+            console.log("myListArrayItem:"+item+"  index"+index);
+            if (item.text == text) {
+                myListArray.splice(index, 1);
+                localStorage.setItem("list", JSON.stringify(myListArray));
+            }
+        })
+    
+        deleteTarget.parentElement.remove();
+    })
+
+    todo.appendChild(p);
+    todo.appendChild(p2);
+    todo.appendChild(deleteBtn);
+    toDoList.appendChild(todo);
+
+    store(myToDo);
+})
+
+
+
+//載入localStorage資料
+function load(){
+    let loadList=localStorage.getItem("list");
+    if (loadList !== null) {
+        let loadListArray = JSON.parse(loadList);
+        loadListArray.forEach(item => {
+            //取得輸入值
+            let todoText = item.text;
+
+            //取得指定日期
+            let today=item.day;
+
+            let todo = document.createElement("div");
+            todo.classList.add("todo");
+            let p=document.createElement('p');
+            p.setAttribute('class','list');
+            let p2=document.createElement('p');
+            p2.setAttribute('class','time')
+            p.innerHTML=todoText;
+            p2.innerHTML=today;
+
+            //刪除代辦事項按鈕
+            let deleteBtn=document.createElement('button');
+            deleteBtn.setAttribute('class','deleteBtn');
+            deleteBtn.addEventListener("click",e=>{
+                let deleteTarget=e.target.parentElement.children[1];
+                console.log(deleteTarget);
+
+                let todoItem = e.target.parentElement;
+                // remove from local storage
+                let text = todoItem.children[0].innerText;
+                console.log("This todoItem.children[1].innerText:"+text);
+                let myListArray = JSON.parse(localStorage.getItem("list"));
+                myListArray.forEach((item, index) => {
+                    console.log("myListArrayItem:"+item+"  index"+index);
+                    if (item.text == text) {
+                        myListArray.splice(index, 1);
+                        localStorage.setItem("list", JSON.stringify(myListArray));
+                    }
+                })
+            
+                deleteTarget.parentElement.remove();
+            })
+
+            todo.appendChild(p);
+            todo.appendChild(p2);
+            todo.appendChild(deleteBtn);
+            toDoList.appendChild(todo);
+        });
+    }
+    console.log(loadList);
+}
+
+//儲存資料
+function store(myToDo){
+    let myList = localStorage.getItem("list");
+    if(myList==null){
+        localStorage.setItem("list",JSON.stringify([myToDo]));
+    }else{
+        let myListArray = JSON.parse(myList);
+        myListArray.push(myToDo);
+        localStorage.setItem("list", JSON.stringify(myListArray));
+    }
+}
