@@ -30,7 +30,14 @@ function loadPost(){
                 //設定id的號碼和key值localStorage post號碼同
                 let imgID = "edit_post_" + i;
                 let trashID = "del_post_" + i;
-                posts += "<div class = 'post' id = 'post_div_" + i + "'> <img src = 'img/defult_user_pic.jpg' width = '30px' height = '30px'>" + localStorage.getItem("name") + "<img src = 'img/edit_tag.jpg' id = '" + imgID + "' width = '20px' height = '20px' class = 'edit_img'><img src = 'img/trash_img.png' id = '" + trashID + "' width = '25px' height = '25px' class = 'del_img'><div class = 'post_content'>" + "<textarea class = 'post_text' id = 'post_text_" + i + "' disabled>"+  localStorage.getItem(key)+ "</textarea></div></div>";
+                let imgSrc='img/defult_user_pic.jpg';
+
+                //設置大頭貼
+                if(localStorage.getItem("bigPic")!=null){
+                    imgSrc=localStorage.getItem("bigPic");
+                }
+
+                posts += "<div class = 'post' id = 'post_div_" + i + "'> <img src = "+ imgSrc +" width = '30px' height = '30px'>" + localStorage.getItem("name") + "<img src = 'img/edit_tag.jpg' id = '" + imgID + "' width = '20px' height = '20px' class = 'edit_img'><img src = 'img/trash_img.png' id = '" + trashID + "' width = '25px' height = '25px' class = 'del_img'><div class = 'post_content'>" + "<textarea class = 'post_text' id = 'post_text_" + i + "' disabled>"+  localStorage.getItem(key)+ "</textarea></div></div>";
                 break;
             }
         }
@@ -89,11 +96,18 @@ function editPostContent(edit_post_num){
                 //照片Q user name
                 //設定id的號碼和key值localStorage post號碼同
                 let imgID = "edit_post_" + i;
+                let imgSrc='img/defult_user_pic.jpg';
+
+                //設置大頭貼
+                if(localStorage.getItem("bigPic")!=null){
+                    imgSrc=localStorage.getItem("bigPic");
+                }
+
                 //要編輯的textarea disable設為false
                 if(i!=num)
-                    posts += "<div class = 'post' id = 'post_div_" + i + "'> <img src = 'img/defult_user_pic.jpg' width = '30px' height = '30px'>" + localStorage.getItem("name") + "<img src = 'img/edit_tag.jpg' id = '" + imgID + "' width = '20px' height = '20px' class = 'edit_img'><div class = 'post_content'>" + "<textarea class = 'post_text' id = 'post_text_" + i + "' disabled>"+  localStorage.getItem(key)+ "</textarea></div></div>";
+                    posts += "<div class = 'post' id = 'post_div_" + i + "'> <img src = "+imgSrc+" width = '30px' height = '30px'>" + localStorage.getItem("name") + "<img src = 'img/edit_tag.jpg' id = '" + imgID + "' width = '20px' height = '20px' class = 'edit_img'><div class = 'post_content'>" + "<textarea class = 'post_text' id = 'post_text_" + i + "' disabled>"+  localStorage.getItem(key)+ "</textarea></div></div>";
                 else
-                    posts += "<div class = 'post' id = 'post_div_" + i + "'> <img src = 'img/defult_user_pic.jpg' width = '30px' height = '30px'>" + localStorage.getItem("name") + "<img src = 'img/edit_tag.jpg' id = '" + imgID + "' width = '20px' height = '20px' class = 'edit_img'><div class = 'post_content'>" + "<textarea class = 'post_text' autofocus id = 'post_text_" + i + "' placeholder = '點選輸入貼文內容'>"+  localStorage.getItem(key)+ "</textarea></div><input type = 'button' class = 'edit_post_btn' id = 'edit_confirm_btn" + num + "' value = '確定編輯'></div>";
+                    posts += "<div class = 'post' id = 'post_div_" + i + "'> <img src = "+imgSrc+" width = '30px' height = '30px'>" + localStorage.getItem("name") + "<img src = 'img/edit_tag.jpg' id = '" + imgID + "' width = '20px' height = '20px' class = 'edit_img'><div class = 'post_content'>" + "<textarea class = 'post_text' autofocus id = 'post_text_" + i + "' placeholder = '點選輸入貼文內容'>"+  localStorage.getItem(key)+ "</textarea></div><input type = 'button' class = 'edit_post_btn' id = 'edit_confirm_btn" + num + "' value = '確定編輯'></div>";
             }
         }
     }
