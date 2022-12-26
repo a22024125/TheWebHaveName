@@ -29,9 +29,9 @@ function start(){
     birthday_hat = document.getElementById("birthday_hat");
                 
     //判斷有無輸入姓名 
-    if(!localStorage.getItem("userName"))
-        localStorage.setItem("userName", "我是大美女");
-    document.getElementById("userName").innerHTML = localStorage.getItem("userName");
+    if(!localStorage.getItem("name"))
+        localStorage.setItem("name", "我是大美女");
+    document.getElementById("name").innerHTML = localStorage.getItem("name");
             
     //設定生日帽
     if(localStorage.getItem("birthday")){
