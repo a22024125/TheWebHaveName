@@ -5,7 +5,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>calendar</title>
-    <link rel="stylesheet" href="css/calendar.css">
+    <link rel="stylesheet" href="css/miniCalendar.css">
+    <script type="text/javascript">
+        var iframe = document.getElementById("small_calander");
+
+        // Adjusting the iframe height onload event
+        iframe.onload = function () {
+            iframe.style.height = iframe.contentWindow.document.body.scrollHeight + 'px';
+        }
+    </script>
 </head>
 <body>
     <table width="550px" height="400px" cellspacing="15" class="calendar">
@@ -34,9 +42,9 @@
             <td>六</td>
         </tr>
     </table>
-    <div>
+    <div class="toDoList">
         
     </div>
 </body>
-<script type="text/javascript" src="javascript/calendar.js"></script>
+<script type="text/javascript" src="javascript/miniCalendar.js"></script>
 </html>

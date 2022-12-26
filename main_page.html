@@ -1,18 +1,17 @@
 <!DOCTYPE html>
 <html>
     <head>
-
         <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1.0">
         <title>有名小站</title>
         <link rel="stylesheet" type = "text/css" href="css/main_page.css">  
         <script type = "text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>   
-        <script type = "text/javascript" src = "javascript/main_page.js"></script>
+        <!-- <script type = "text/javascript" src = "javascript/main_page.js"></script> -->
     </head>
     <body>
         <audio id = "birthday_song" preload="auto">
             <source src = "song/birthday_song.mp3" type = "audio/mp3">
         </audio>
-        <div class = "floated side">
+        <div class = "floated side"  id="test">
             <div class = "title">
                 有名小站
             </div>
@@ -20,7 +19,7 @@
                 <img id = "birthday_hat" class = 'no_hat' src = "img/background_color.PNG" >
                 <img id = "user_picture" src = "img/defult_user_pic.jpg">
             </div>
-            <p id = "name"></p>
+            <p id = "userName"></p>
             <p><a id = "WhoIsMe" href = "#">Who Is Me</a></p>
             <p><a id = "MyPage" href = "#">My Page</a></p>
             <p><a id = "Album" href = "#">Album</a></p>
@@ -28,7 +27,7 @@
             <p><a id = "Calander" href = "#">Calander</a></p>
             <p><a id = "demo_ppt" href = "https://docs.google.com/presentation/d/1fDsgjGmNhQiDXUqlEggVldGDsTyp2aE8UhA2muSagM0/edit?usp=sharing" target = "_blank">ppt</a></p>
             <hr>
-            <p><iframe id = "small_calander" src = "miniCalendar.html" scrolling="no"></iframe></p>
+            <p class="iNeedThatP"><iframe id = "small_calander" src = "miniCalendar.html" width="100%" marginwidth="0" marginheight="0" scrolling="No" frameborder="0" allowfullscreen></iframe></p>
 
         </div>      
         
@@ -42,4 +41,9 @@
             </div>
         </div>
     </body>
+    <script>
+        console.log(document.querySelector("#test"))
+    </script>
+
+    <script type = "text/javascript" src = "javascript/main_page.js"></script>
 </html>
