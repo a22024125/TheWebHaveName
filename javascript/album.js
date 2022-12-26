@@ -1,9 +1,11 @@
 var upload_pic_btn;
 var show_pic_div;        
-var total_pic_count = 0;   
+var total_pic_count = 0; 
+var user_name;  
 
 function start(){
     upload_pic_btn = document.getElementById("upload_pic_btn");
+    user_name = localStorage.getItem("name");
     
     //讓user上傳照片
     //Save The Data URL String in localStorage
@@ -11,7 +13,40 @@ function start(){
         const ig = event.target.files[0];
         const reader = new FileReader();
         reader.readAsDataURL(ig);
+        reader.onloadend = function () {
+            let base64String = reader.result;
+            console.log(base64String);
+            $.ajax({
+                url: "http://127.0.0.1:3000/insert_album",
+                method: "POST",
+                dataType: "json",
+                crossDomain: true,
+                withCredentials: true,
+    
+                data: {
+                    'name': user_name, 
+                    'album_content': base64String
+                },
+                success: function (data) {
+                    //alert('response data = ' + data);
+                    window.alert('Insert album success');
+                },
+                failure: function (data) {
+                    window.alert('something wrong！try it again');
+                }
+            });
+            window.alert("insert OK!");
+        }
+        
+        //連接後端要整個網址
+        /*
+        $.post("http://127.0.0.1:3000/insert_album", { name: user_name},function(res) {
+            console.log(res);
+            if(res.result!=true)
+                window.alert("something wrong！try it again");
+        });*/
 
+        
         reader.addEventListener("load", ()=> {
             localStorage.setItem("Image_"+total_pic_count, reader.result);
             showPic();
@@ -26,6 +61,7 @@ function showPic(){
     let content = "";
     let rem_num = new Array();
     total_pic_count = 0;
+    
     for(let i = 0;i < localStorage.length;i++){
         if(localStorage.key(i).substring(0,6)=="Image_"){
             //計算上傳過幾張照片
