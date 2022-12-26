@@ -22,13 +22,9 @@ subBtn.addEventListener("click",e=>{
     e.preventDefault();
     let gender=document.querySelector('input[name="gender"]:checked').value;
 
-
-    
-    
-
-
     localStorage.setItem("name",userName.value);
     localStorage.setItem("birthday",birthday.value);
     localStorage.setItem("gender",gender);
     localStorage.setItem("self-introducing",selfIntro.value);
+    alert("資料已儲存！請重新整理頁面更新資訊");
 });

@@ -106,6 +106,13 @@ function load(){
     });
 }
 console.log(loadList);
+
+//設置大頭貼
+let userPicture=document.querySelector("#user_picture");
+if(localStorage.getItem("bigPic")!=null){
+    userPicture.setAttribute("src",localStorage.getItem("bigPic"));
+}
+
 }
 
 function logOut(){
