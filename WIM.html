@@ -8,8 +8,8 @@
     <link rel="stylesheet" href="/css/WIM.css">
 </head>
 <body>
-    <form name="setting" method="get" action="">
-        <label>名稱: <input type="text" name="userName" class="name"></label>
+    <form name="setting" method="post" action="" enctype="multipart/form-data">
+        <label>名稱: <input type="text" name="name" class="name"></label>
         </br>
         <label>生日: <input type="date" name="birthday" class="date"></label>
         </br>
@@ -18,6 +18,8 @@
             <input type="radio" name="gender" value="girl" class="gender">女
             <input type="radio" name="gender" value="unknow" class="gender">不明
         </label>
+        </br>
+        <label>點擊上傳大頭照: <input type = "file" id = "upload_pic_btn" accept="image/*" value = "點擊上傳照片"></label>   
         </br>
         <label>自我介紹: </br><textarea placeholder="在這裡跟大家打聲招呼吧~" name="self-introducing" class="selfIntroduce"></textarea></label>
         </br>
